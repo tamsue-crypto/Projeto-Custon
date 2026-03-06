@@ -42,9 +42,9 @@ h1, h2, h3, h4, h5, p, span {
 }
 
 html, body {
-    height: 100%;
-    overflow-x: hidden;
     font-family: "Geist";
+    position: relative;
+    scroll-behavior: smooth;
 }
 
 .flex { display: flex; }
@@ -156,6 +156,81 @@ html, body {
     transform: translateX(4px);
 }
 
+.fixed_header {
+    position: fixed;
+    padding: 20px 32px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFF;
+    width: 100%;
+    border-radius: 0px 0px 20px 20px;
+    box-shadow: 0px 6px 8px 0px rgb(0, 0, 0, 0.1);
+}
+
+.fixed_header.hide{
+    transform:translateY(-120%);
+}
+
+.comp_name-fixed span:nth-child(1) {
+    font-family: "Futura CG Book";
+    font-weight: 600;
+    color: #A196FC;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2px;
+}
+
+.comp_name-fixed span:nth-child(2) {
+    color: #A196FC;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 24%;
+    text-indent: 2px;
+}
+
+.fixed_nav {
+    padding: 12px 28px;
+    align-items: center;
+    gap: 32px;
+    color: #FFF;
+    background-color: #A196FC;
+    box-shadow: inset 0px 4px 12px -2px #4E459A;
+    border-radius: 30px;
+}
+
+.fixed_nav a {
+    transition: color 0.2s ease;
+}
+
+.fixed_nav a:hover {
+    color: #E6E3FE;
+    cursor: pointer;
+}
+
+.fixed_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    background-color: #A196FC;
+    padding: 14px 16px;
+    color: #fff;
+    border-radius: 30px;
+    box-shadow: inset 0px 4px 12px -2px #4E459A;
+    gap: 6px;
+    transition: filter 0.2s ease;
+    stroke: #FFF;
+}
+
+.fixed_btn:hover {
+    filter: brightness(1.1);
+    cursor: pointer;
+    color: #E6E3FE;
+    stroke: #E6E3FE;
+}
+
 /* HERO */
 
 .hero_header {
@@ -187,6 +262,24 @@ html, body {
     text-indent: 2px;
 }
 
+.comp_name_footer span:nth-child(1) {
+    font-family: "Futura CG Book";
+    font-weight: bold;
+    color: #FFF;
+    font-size: 44px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2px;
+}
+
+.comp_name_footer span:nth-child(2) {
+    color: #fff;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 24%;
+    text-indent: 2px;
+}
+
 .nav_container{
     background-color: #FFF;
     border-radius: 30px;
@@ -201,11 +294,11 @@ html, body {
     font-weight: 500;
 }
 
-.hero_nav span {
+.hero_nav a {
     transition: color 0.2s ease;
 }
 
-.hero_nav span:hover {
+.hero_nav a:hover {
     cursor: pointer;
     color: #A196FC;
 }
@@ -342,6 +435,16 @@ html, body {
 
 /* HOW IT WORKS SECTION S2 */
 
+#hiw{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    margin: auto auto;
+    z-index: 999;
+}
+
 .hiw_header {
     z-index: 0;
     position: absolute;
@@ -353,50 +456,92 @@ html, body {
     text-align: center;
 }
 
-.hiw_position_container {
+.hiw_container{
     display: flex;
+    width: 1366px;
+    margin: auto auto;
+    display: flex;
+    gap:120px;
+}
+
+.hiw_steps{
+    display:flex;
+    flex-direction:column;
+    gap: 42px;
     font-size: 100px;
-    color: #00000066;
 }
 
-.selected {
-    color: #000000b3;
+.hiw_steps span{
+    opacity:0.4;
+    transition: opacity 0.2s ease;
 }
 
-.position_bar {
-    width: 4px;
-    background-color: #000000b3;
-    height: 100px;
-    margin-left: 20px;
+.hiw_steps span.active{
+    opacity: .7;
 }
 
-.hiw_headline {
+.hiw_icons{
+    position: relative;
+    width: 348px;
+}
+
+.hiw_icon {
+    opacity:0;
+    position: absolute;
+}
+
+.hiw_icon.active {
+    opacity: 1;
+}
+
+.hiw_content {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.hiw_item{
+    position:absolute;
+    display: flex;
+    flex-direction: column;
     width: 672px;
-    align-self: center;
     gap: 24px;
 }
 
-.hiw_headline header {
-    color: rgb(0, 0, 0, 0.7);
-    font-weight: 500;
-    font-size: 48px;
+.hiw_item.active{
+    opacity:1;
 }
 
-.hiw_headline .text {
+.hiw_item header {
+    color: rgb(0, 0, 0, 0.7);
+    overflow: hidden;
+    height: fit-content;
+    font-weight: 500;
+    font-size: 48px;
+    filter: blur(2px);
+    opacity: 0;
+    transition: opacity .2s ease, filter .5s ease;
+}
+
+.hiw_item.active header {
+    filter: blur(0px);
+    opacity: 1;
+}
+
+.phrase{
+    display: block;
+    overflow: hidden;
+}
+
+.hiw_item .text {
     font-weight: 400;
     color: rgb(0, 0, 0, 0.6);
     font-size: 20px;
-    line-height: 20px;
+    opacity: 0;
 }
 
-.hiw_icon_container {
-    gap: 24px;
-    display: flex;
-    justify-content: center;
-    height: 420px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
+.hiw_item.active .text{
+    opacity: 1;
 }
 
 /* ABOUT */
@@ -600,9 +745,48 @@ html, body {
 
 footer {
     overflow: hidden;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #A196FC;
     position: relative;
     display: flex;
     width: 100%;
+}
+
+.footer_info {
+    gap: 18px;
+}
+
+.footer_content {
+    display: flex;
+    gap: 80px;
+    flex-direction: column;
+    z-index: 99;
+    margin: auto auto;
+    padding: 0px 70px;
+    width: 100%;
+}
+
+.footer_headline {
+    text-align: center;
+    gap: 2;
+    color: #0000001a;
+    text-transform: uppercase;
+    font-size: 82px;
+    font-family: "Futura CG Book";
+}
+
+.footer_headline span:nth-child(2) {
+    font-size: 120px;
+}
+
+.btn_me {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #ffffff80;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.btn_me:hover {
+    color: #fff;
 }
