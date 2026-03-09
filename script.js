@@ -154,3 +154,31 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
   });
 });
+
+/* FOOTER */
+
+ScrollTrigger.create({
+    trigger: ".footer_content",
+    start: "50% bottom",
+
+    onEnter: () => {
+        gsap.to(".fixed_header", {y: -100, duration: 0.4});
+    },
+    
+    onLeave: () => {
+        gsap.to(".fixed_header", { y: 0, duration: 0.4 });
+    },
+
+    onEnterBack: () => {
+        gsap.to(".fixed_header", {y: -100, duration: 0.4});
+    },
+    
+    onLeaveBack: () => {
+        gsap.to(".fixed_header", { y: 0, duration: 0.4 });
+    },
+
+    onUpdate:self=>{
+        const step = Math.min(2, Math.floor(self.progress * 3))
+        setStep(step)
+    }
+})
