@@ -509,6 +509,7 @@ html, body {
 
 .hiw_content {
     position: relative;
+    justify-content: end;
     display: flex;
     align-items: center;
     width: 672px;
@@ -1134,7 +1135,7 @@ footer {
 
     /* FAQ */
     .faq_question {
-        padding: 18px 40px 16px 66px;
+        padding: 16px 40px 16px 40px;
     }
 
     .question_header {
@@ -1187,5 +1188,64 @@ footer {
 
 /* Celulares */
 @media (max-width: 480px) {
+    .hero_headline {
+        margin: 116px auto;
+        width: 296px;
+    }
 
+    .hiw_container {
+        width: 350px;
+    }
+
+    .hiw_container {
+        gap: 12px;
+    }
+    
+    .hiw_header {
+        font-size: 58px;
+    }
+
+    .hiw_item {
+        width: 185px;
+    }
+
+    .hiw_item .text {
+        font-size: 16px;
+    }
+
+    .hiw_item a {
+        transform: scale(0.8) translateX(-30px);
+    }
+
+    .primary_btn_body header {
+        font-size: 14px;
+    }
+
+    .nobg_section_content {
+        padding: 0px;
+    }
+
+    .benefits_container {
+        padding: 40px 20px;
+    }
+
+    .faq_header {
+        font-size: 36px;
+    }
+
+    .footer_container {
+        width: 350px;
+    }
+
+    .footer_content {
+        padding: 0px 20px;
+    }
+
+    .comp_loc span:nth-child(1){
+        font-size: 14px;
+    }
+
+    .comp_loc span:nth-child(2){
+        font-size: 12px;
+    }
 }
