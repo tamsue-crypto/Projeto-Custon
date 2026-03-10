@@ -163,6 +163,7 @@ html, body {
 }
 
 .fixed_header {
+    will-change: transform;
     position: fixed;
     padding: 20px 32px;
     z-index: 1000;
@@ -447,6 +448,9 @@ html, body {
 }
 
 /* HOW IT WORKS SECTION S2 */
+.section_container.hiw{
+    height: 932px;
+}
 
 #hiw{
     height:100vh;

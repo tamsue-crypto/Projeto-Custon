@@ -74,6 +74,10 @@ loop()
 
 /* HIW */
 
+ScrollTrigger.config({
+  ignoreMobileResize: true
+})
+
 const steps = document.querySelectorAll(".hiw_steps span")
 const icons = document.querySelectorAll(".hiw_icon")
 const items = document.querySelectorAll(".hiw_item")
@@ -94,10 +98,11 @@ function setStep(i){
 ScrollTrigger.create({
     trigger:".section_container.hiw",
     start:"top top",
-    end:"+=200%",
+    end:"+=1864",
 
     scrub:true,
     pin:true,
+    pinSpacing: true,
 
     onEnter: () => {
         gsap.to(".fixed_header", {y: -100, duration: 0.4});
