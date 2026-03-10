@@ -45,6 +45,7 @@ html, body {
     font-family: "Geist";
     position: relative;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 .flex { display: flex; }
