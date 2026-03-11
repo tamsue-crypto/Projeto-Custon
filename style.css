@@ -740,6 +740,8 @@ html, body {
 
 .faq_question {
     background-color: #F5F3FF;
+    color: #000;
+    -webkit-tap-highlight-color: transparent;
     width: 100%;
     border: none;
     display: flex;
@@ -1218,6 +1220,10 @@ footer {
 
     .hiw_item a {
         transform: scale(0.8) translateX(-30px);
+    }
+
+    .purple_container_bg.hiw {
+        display: none;
     }
 
     .primary_btn_body header {

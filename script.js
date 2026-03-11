@@ -74,9 +74,7 @@ loop()
 
 /* HIW */
 
-ScrollTrigger.config({
-  ignoreMobileResize: true
-})
+ScrollTrigger.normalizeScroll(true)
 
 const steps = document.querySelectorAll(".hiw_steps span")
 const icons = document.querySelectorAll(".hiw_icon")
@@ -98,7 +96,7 @@ function setStep(i){
 ScrollTrigger.create({
     trigger:".section_container.hiw",
     start:"top top",
-    end:"+=1864",
+    end:"+=200%",
 
     scrub:true,
     pin:true,
