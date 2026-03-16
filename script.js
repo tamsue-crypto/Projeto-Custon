@@ -157,9 +157,10 @@ gsap.utils.toArray(".about_card").forEach((card) => {
     duration: 1,
     filter: "blur(4px)",
     ease: "power4.out",
+    opacity: 0,
     stagger: 0.12,
     scrollTrigger: {
-      trigger: card,
+      trigger: ".about_subtitle",
       start: "top 80%",
     }
   });
@@ -203,7 +204,6 @@ gsap.from(".faq_item", {
     y: 100,
     duration: 1,
     filter: "blur(4px)",
-    opacity: 0,
     ease: "power4.out",
     stagger: 0.12,
     scrollTrigger: {
