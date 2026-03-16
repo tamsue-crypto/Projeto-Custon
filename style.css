@@ -1222,10 +1222,6 @@ footer {
         transform: scale(0.8) translateX(-30px);
     }
 
-    .purple_container_bg.hiw {
-        display: none;
-    }
-
     .primary_btn_body header {
         font-size: 14px;
     }

@@ -23,6 +23,31 @@ gsap.from(".fixed_header", {
     }
 });
 
+/* HERO */
+
+gsap.from(".headline_title div", {
+    opacity: 0,
+    y: 40,
+    duration: 0.8,
+    stagger: 0.12,
+    ease: "power3.out"
+});
+
+gsap.from(".headline_subtitle", {
+    opacity: 0,
+    y: 40,
+    delay: 1,
+    duration: 0.8,
+    stagger: 0.12,
+    ease: "power3.out"
+});
+
+gsap.from(".purple_container_bg.hero.flex", {
+    y: 1000,
+    duration: 0.8,
+    ease: "power3.out"
+});
+
 /* FLAGS */
 
 gsap.from(".section_title .word", {
@@ -124,6 +149,22 @@ ScrollTrigger.create({
     }
 })
 
+/* ABOUT */
+
+gsap.utils.toArray(".about_card").forEach((card) => {
+  gsap.from(card, {
+    y: 100,
+    duration: 1,
+    filter: "blur(4px)",
+    ease: "power4.out",
+    stagger: 0.12,
+    scrollTrigger: {
+      trigger: card,
+      start: "top 80%",
+    }
+  });
+});
+
 /* FAQ */
 document.querySelectorAll(".faq_question").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -157,6 +198,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
   });
 });
+
+gsap.from(".faq_item", {
+    y: 100,
+    duration: 1,
+    filter: "blur(4px)",
+    ease: "power4.out",
+    stagger: 0.12,
+    scrollTrigger: {
+            trigger: ".faq_container",
+            start: "top 80%",
+            once: true,
+        }
+})
 
 /* FOOTER */
 
