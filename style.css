@@ -165,6 +165,7 @@ html, body {
 }
 
 .fixed_header {
+    transform: translateY(-100%);
     will-change: transform;
     position: fixed;
     padding: 20px 32px;
