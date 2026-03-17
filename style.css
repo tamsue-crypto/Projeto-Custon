@@ -1052,11 +1052,11 @@ footer {
     }
 
     .footer_headline span:nth-child(1) {
-        font-size: 39px;
+        font-size: 21px;
     }
 
     .footer_headline span:nth-child(2) {
-        font-size: 57px;
+        font-size: 30px;
     }
 
     .footer_info.text{
