@@ -525,16 +525,18 @@ html, body {
     width: 672px;
 }
 
-.hiw_item{
-    position: absolute;
-    justify-self: end;
-    display: none;
-    flex-direction: column;
+.hiw_item {
+    display: flex;
     gap: 24px;
+    flex-direction: column;
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
 }
 
-.hiw_item.active{
-    display: flex;
+.hiw_item.active {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .hiw_item header {

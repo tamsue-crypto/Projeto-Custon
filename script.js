@@ -90,6 +90,10 @@ gsap.to({}, {
 
 /* HIW */
 
+ScrollTrigger.config({
+  ignoreMobileResize: true
+});
+
 const steps = document.querySelectorAll(".hiw_steps span")
 const icons = document.querySelectorAll(".hiw_icon")
 const items = document.querySelectorAll(".hiw_item")
@@ -112,9 +116,10 @@ ScrollTrigger.create({
     start:"top top",
     end:"+=200%",
 
-    scrub:true,
+    scrub: 0.5,
     pin:true,
     pinSpacing: true,
+    antecipatePin: 1,
 
     onEnter: () => toggleHeader(false),
     onLeave: () => toggleHeader(true),
