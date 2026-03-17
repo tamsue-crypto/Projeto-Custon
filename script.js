@@ -1,9 +1,11 @@
 gsap.registerPlugin(SplitText, ScrollTrigger, ScrollSmoother);
 
-let smoother = ScrollSmoother.create({
-    wrapper: '#smooth-wrapper',
-    content: '#smooth-content'
-})
+if (window.innerWidth > 768) {
+    ScrollSmoother.create({
+        wrapper: '#smooth-wrapper',
+        content: '#smooth-content'
+    })
+}
 
 gsap.from(".fixed_header", {
     y: -100,
@@ -13,23 +15,25 @@ gsap.from(".fixed_header", {
         trigger: "#top",
         start: "20% top",
 
-        onEnter: () => {
-            gsap.to(".fixed_header", { y: 0, duration: 0.4 });
-        },
-
-        onLeaveBack: () => {
-            gsap.to(".fixed_header", { y: -100, duration: 0.4 });
-        }
+        onEnter: () => toggleHeader(false),
+        onLeave: () => toggleHeader(true),
     }
 });
+
+function toggleHeader(show) {
+    gsap.to(".fixed_header", {
+        y: show ? 0 : -100,
+        duration: 0.4
+    });
+}
 
 /* HERO */
 
 gsap.from(".headline_title div", {
     opacity: 0,
     y: 40,
-    duration: 0.8,
-    stagger: 0.12,
+    stagger: 0.05,
+    duration: 0.6,
     ease: "power3.out"
 });
 
@@ -42,18 +46,11 @@ gsap.from(".headline_subtitle", {
     ease: "power3.out"
 });
 
-gsap.from(".purple_container_bg.hero.flex", {
-    y: 1000,
-    duration: 0.8,
-    ease: "power3.out"
-});
-
 /* FLAGS */
 
 gsap.from(".section_title .word", {
     y: 100,
     duration: 1,
-    filter: "blur(4px)",
     ease: "power4.out",
     stagger: 0.12,
     scrollTrigger: {
@@ -66,7 +63,6 @@ gsap.from(".section_title .word", {
 gsap.from(".primary_btn", {
     y: 100,
     duration: 1,
-    filter: "blur(4px)",
     ease: "power4.out",
     scrollTrigger: {
             trigger: "#flag",
@@ -85,21 +81,13 @@ function randomFlag(){
 
 }
 
-function loop(){
-
-    randomFlag()
-
-    const delay = 800
-
-    setTimeout(loop, delay)
-
-}
-
-loop()
+gsap.to({}, {
+    repeat: -1,
+    delay: 1,
+    onRepeat: randomFlag
+});
 
 /* HIW */
-
-ScrollTrigger.normalizeScroll(true)
 
 const steps = document.querySelectorAll(".hiw_steps span")
 const icons = document.querySelectorAll(".hiw_icon")
@@ -127,21 +115,8 @@ ScrollTrigger.create({
     pin:true,
     pinSpacing: true,
 
-    onEnter: () => {
-        gsap.to(".fixed_header", {y: -100, duration: 0.4});
-    },
-    
-    onLeave: () => {
-        gsap.to(".fixed_header", { y: 0, duration: 0.4 });
-    },
-
-    onEnterBack: () => {
-        gsap.to(".fixed_header", {y: -100, duration: 0.4});
-    },
-    
-    onLeaveBack: () => {
-        gsap.to(".fixed_header", { y: 0, duration: 0.4 });
-    },
+    onEnter: () => toggleHeader(false),
+    onLeave: () => toggleHeader(true),
 
     onUpdate:self=>{
         const step = Math.min(2, Math.floor(self.progress * 3))
@@ -155,7 +130,6 @@ gsap.utils.toArray(".about_card").forEach((card) => {
   gsap.from(card, {
     y: 100,
     duration: 1,
-    filter: "blur(4px)",
     ease: "power4.out",
     opacity: 0,
     stagger: 0.12,
@@ -203,7 +177,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 gsap.from(".faq_item", {
     y: 100,
     duration: 1,
-    filter: "blur(4px)",
     ease: "power4.out",
     stagger: 0.12,
     scrollTrigger: {
@@ -219,24 +192,6 @@ ScrollTrigger.create({
     trigger: ".footer_content",
     start: "50% bottom",
 
-    onEnter: () => {
-        gsap.to(".fixed_header", {y: -100, duration: 0.4});
-    },
-    
-    onLeave: () => {
-        gsap.to(".fixed_header", { y: 0, duration: 0.4 });
-    },
-
-    onEnterBack: () => {
-        gsap.to(".fixed_header", {y: -100, duration: 0.4});
-    },
-    
-    onLeaveBack: () => {
-        gsap.to(".fixed_header", { y: 0, duration: 0.4 });
-    },
-
-    onUpdate:self=>{
-        const step = Math.min(2, Math.floor(self.progress * 3))
-        setStep(step)
-    }
+    onEnter: () => toggleHeader(false),
+    onLeave: () => toggleHeader(true),
 })

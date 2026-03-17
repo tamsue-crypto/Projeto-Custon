@@ -18,6 +18,12 @@
 
 /* GENERAL */
 
+.headline_title div,
+.about_card,
+.faq_item {
+    will-change: transform, opacity;
+}
+
 *,
 *::before,
 *::after {
@@ -442,7 +448,7 @@ html, body {
     width: 152px;
     height: 152px;
     border-radius: 24px;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    transition: transform 0.8s ease, box-shadow 0.8s ease;
 }
 
 .flag_card.activated {
@@ -453,7 +459,7 @@ html, body {
 /* HOW IT WORKS SECTION S2 */
 
 #hiw{
-    height:100vh;
+    height: 100dvh;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -537,13 +543,11 @@ html, body {
     height: fit-content;
     font-weight: 500;
     font-size: 48px;
-    filter: blur(2px);
     opacity: 0;
-    transition: opacity .2s ease, filter .5s ease;
+    transition: opacity .2s ease;
 }
 
 .hiw_item.active header {
-    filter: blur(0px);
     opacity: 1;
 }
 
@@ -792,7 +796,7 @@ html, body {
 
 footer {
     overflow: hidden;
-    min-height: 100vh;
+    min-height: 100dvh;
     background-color: #A196FC;
     position: relative;
     display: flex;
