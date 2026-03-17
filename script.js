@@ -13,10 +13,11 @@ gsap.from(".fixed_header", {
     ease: "power4.out",
     scrollTrigger: {
         trigger: "#top",
-        start: "20% top",
+        end: "20% top",
 
         onEnter: () => toggleHeader(false),
         onLeave: () => toggleHeader(true),
+        onEnterBack: () => toggleHeader(false),
     }
 });
 
@@ -117,6 +118,8 @@ ScrollTrigger.create({
 
     onEnter: () => toggleHeader(false),
     onLeave: () => toggleHeader(true),
+    onLeaveBack: () => toggleHeader(true),
+    onEnterBack: () => toggleHeader(false),
 
     onUpdate:self=>{
         const step = Math.min(2, Math.floor(self.progress * 3))
@@ -180,7 +183,7 @@ gsap.from(".faq_item", {
     ease: "power4.out",
     stagger: 0.12,
     scrollTrigger: {
-            trigger: ".faq_container",
+            trigger: "#faq",
             start: "top 80%",
             once: true,
         }
